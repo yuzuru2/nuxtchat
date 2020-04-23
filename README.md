@@ -1,0 +1,2 @@
+# nuxtchat
+nuxtで作ったSSRなチャット
