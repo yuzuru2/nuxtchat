@@ -45,6 +45,7 @@ https://nuxtchat.itsumen.com
 
 ### データベース
 - mongodb
+- redis
 
 ### 画像ホスト
 - firebase storage
