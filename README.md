@@ -8,6 +8,30 @@ nuxtで作ったSSRなチャットのソースです。
 
 https://nuxtchat.itsumen.com
 
+## 使用ライブラリ周り
+
+### フロントエンド
+
+- nuxt
+- vuex
+- bootstrap
+- typescript
+
+### サーバサイド
+
+- nodejs
+- typescript
+- socket.io
+- mongoose
+- firebase-admin
+- jwt
+
+### データベース
+- mongodb
+
+### 画像ホスト
+- firebase storage
+
 ## セットアップ
 
 ```
@@ -22,6 +46,20 @@ BACKEND_PORT → バックエンドサーバのポート番号 (お好きな番�
 
 # firebase storageの秘密鍵 https://firebase.google.com/docs/admin/setup?hl=ja
 vi nodejs/server/file/xxxx-firebase-adminsdk-xxxx.json
+
+{
+  "type": "service_account",
+  "project_id": "",
+  "private_key_id": "",
+  "private_key": "",
+  "client_email": "",
+  "client_id": "",
+  "auth_uri": "",
+  "token_uri": "",
+  "auth_provider_x509_cert_url": "",
+  "client_x509_cert_url": ""
+}
+
 
 サーバを立ち上げる
 $ sudo docker-compose up -d --build
