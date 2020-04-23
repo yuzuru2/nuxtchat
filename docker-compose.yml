@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+  # redis socket.ioを使う時に使う
+  chat_redis:
+    image: "redis:latest"
+    container_name: chat_redis
+    volumes:
+      - ./redis/data:/data
+    tty: true
+    restart: always
+
+  # mongodb チャットデータ
+  chat_mongodb:
+    build: ./mongodb
+    container_name: chat_mongodb
+    volumes:
+      - ./mongodb/data:/data/db
+      - ./mongodb/mongod.conf:/etc/mongod.conf
+      - ./mongodb/init/:/docker-entrypoint-initdb.d/
+    command: mongod --config /etc/mongod.conf
+    tty: true
+    restart: always
+
+  # フロントエンドサーバ
+  frontend_nodejs:
+    build: ./nodejs/front
+    container_name: frontend_nodejs
+    ports:
+      - "${FRONTEND_PORT}:3000"
+    command: [sh, -c, npm i && npm run production]
+    volumes:
+      - ./nodejs/front/file:/src
+    env_file:
+      - .env
+    tty: true
+    restart: always
+
+  # バックエンドサーバ
+  backend_nodejs:
+    build: ./nodejs/server
+    container_name: backend_nodejs
+    ports:
+      - "${BACKEND_PORT}:3000"
+    command: [sh, -c, /wait && npm i && sh production.sh]
+    depends_on:
+      - chat_mongodb
+    environment:
+      WAIT_HOSTS: chat_mongodb:27017, chat_redis:6379
+    volumes:
+      - ./nodejs/server/file:/src
+    env_file:
+      - .env
+    tty: true
+    restart: always

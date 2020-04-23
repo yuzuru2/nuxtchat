@@ -1,0 +1,22 @@
+[
+  {
+    "name": "chat_server",
+    "instances": 1,
+    "script": "./dist/src/index.js",
+    "exec_mode": "cluster_mode",
+    "env": {
+      "NODE_ENV": "production",
+      "NODE_PATH": "./dist"
+    }
+  },
+  {
+    "name": "chat_cron",
+    "instances": 1,
+    "script": "./dist/src/cron/index.js",
+    "exec_mode": "cluster_mode",
+    "env": {
+      "NODE_ENV": "production",
+      "NODE_PATH": "./dist"
+    }
+  }
+]

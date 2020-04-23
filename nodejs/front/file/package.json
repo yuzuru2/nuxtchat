@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "production": "npm run build && pm2 start --no-daemon npm -- start"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^0.3.1",
+    "@nuxtjs/axios": "^5.3.6",
+    "bootstrap-vue": "^2.11.0",
+    "file-type": "^14.1.4",
+    "ifvisible.js": "^1.0.6",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "nuxt": "^2.10.0",
+    "pm2": "^4.3.1",
+    "socket.io-client": "^2.3.0",
+    "vue-property-decorator": "^8.3.0"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^0.5.0",
+    "@types/lodash": "^4.14.150",
+    "@types/socket.io-client": "^1.4.32",
+    "acorn": "^7.1.1",
+    "kind-of": "^6.0.3",
+    "minimist": "^1.2.5",
+    "vuex-module-decorators": "^0.11.0"
+  }
+}

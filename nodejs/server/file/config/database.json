@@ -1,0 +1,20 @@
+{
+  "mongodb": {
+    "development": "",
+    "production": "mongodb://chat_mongodb:27017/chat"
+  },
+  "redis": {
+    "development": {
+      "host": "",
+      "port": 6379
+    },
+    "test": {
+      "host": "",
+      "port": 6379
+    },
+    "production": {
+      "host": "chat_redis",
+      "port": 6379
+    }
+  }
+}

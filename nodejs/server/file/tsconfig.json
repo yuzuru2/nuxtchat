@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"]
+    },
+    "outDir": "./dist/src",
+    "sourceMap": false,
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "removeComments": true
+  },
+  "include": ["./src/**/*"]
+}
