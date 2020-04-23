@@ -78,7 +78,7 @@ vi nodejs/server/file/xxxx-firebase-adminsdk-xxxx.json
 }
 
 
-サーバを立ち上げる
+# サーバを立ち上げる
 $ sudo docker-compose up -d --build
 
 # ブラウザでアクセスする
