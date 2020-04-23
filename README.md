@@ -60,6 +60,7 @@ $ cd chat
 SERVER_IP   → サーバのIP
 NGINX_PORT  → フロントエンドサーバのポート番号 (お好きな番号を選んでください)
 BACKEND_PORT → バックエンドサーバのポート番号 (お好きな番号を選んでください)
+FIREBASE_STORAGE_BUCKET → firebase storageのバケット名
 
 # firebase storageの秘密鍵 https://firebase.google.com/docs/admin/setup?hl=ja
 vi nodejs/server/file/xxxx-firebase-adminsdk-xxxx.json
@@ -76,7 +77,6 @@ vi nodejs/server/file/xxxx-firebase-adminsdk-xxxx.json
   "auth_provider_x509_cert_url": "",
   "client_x509_cert_url": ""
 }
-
 
 # サーバを立ち上げる
 $ sudo docker-compose up -d --build
