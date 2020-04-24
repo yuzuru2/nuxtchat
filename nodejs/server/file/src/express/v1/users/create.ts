@@ -39,8 +39,7 @@ export const create_user = async (req: i_requst, res: Express.Response) => {
     // クッキーセット
     res.cookie(constant.JWT_TOKEN, encode({ id: _ret[0].id }, private_key), {
       maxAge: 1000 * 60 * 60 * 24 * 365 * 100, // 100年
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production' ? true : false,
+      httpOnly: true
     });
 
     res.send({
