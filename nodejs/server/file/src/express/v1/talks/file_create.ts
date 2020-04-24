@@ -24,7 +24,7 @@ export const create = async (req: i_requst, res: Express.Response) => {
     const _ret = await file_create({
       id: req.query.id,
       roomId: req.query.roomId,
-      ip: shaping_ip(req.ip),
+      ip: shaping_ip(req),
       image: Buffer.from(req.body.image),
     });
 

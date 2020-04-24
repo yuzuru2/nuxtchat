@@ -27,12 +27,31 @@ export const create_error_log = (file_name: string, message: string) => {
   });
 };
 
-export const shaping_ip = (ip: string) => {
-  if (ip.substr(0, 7) == '::ffff:') {
-    ip = ip.substr(7);
+export const shaping_ip = (req) => {
+  const shaping = (ip: string) => {
+    if (ip.substr(0, 7) == '::ffff:') {
+      ip = ip.substr(7);
+    }
+    return ip;
+  };
+
+  if (req.headers['x-forwarded-for']) {
+    return shaping(req.headers['x-forwarded-for']).split(',')[0];
   }
 
-  return ip;
+  if (req.connection && req.connection.remoteAddress) {
+    return shaping(req.connection.remoteAddress);
+  }
+
+  if (req.connection.socket && req.connection.socket.remoteAddress) {
+    return shaping(req.connection.socket.remoteAddress);
+  }
+
+  if (req.socket && req.socket.remoteAddress) {
+    return shaping(req.socket.remoteAddress);
+  }
+
+  return '0.0.0.0';
 };
 
 /**

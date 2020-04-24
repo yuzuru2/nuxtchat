@@ -33,13 +33,14 @@ export const create_user = async (req: i_requst, res: Express.Response) => {
     const _ret = await create({
       name: String(req.body.name),
       iconId: Number(req.body.iconId),
-      ip: shaping_ip(req.ip),
+      ip: shaping_ip(req),
     });
 
     // クッキーセット
     res.cookie(constant.JWT_TOKEN, encode({ id: _ret[0].id }, private_key), {
       maxAge: 1000 * 60 * 60 * 24 * 365 * 100, // 100年
       httpOnly: true,
+      secure: process.env.NODE_ENV === 'production' ? true : false,
     });
 
     res.send({

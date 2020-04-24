@@ -18,6 +18,11 @@ export const update_room_name = async (params: {
       return false;
     }
 
+    // 部屋名が変わってるか
+    if (params.roomName === _list[0].roomName) {
+      throw new Error('部屋名が変わってない');
+    }
+
     // トランザクション開始
     session.startTransaction();
 

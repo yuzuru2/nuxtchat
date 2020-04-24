@@ -32,7 +32,7 @@ export const v1 = async () => {
 
   // origin
   if (process.env.NODE_ENV === 'production') {
-    io.set('origins', constant.ORIGIN[process.env.NODE_ENV]);
+    io.set('origins', constant.ORIGIN[process.env.NODE_ENV] + ':443');
   }
 
   // タイムアウトを5秒に設定する
@@ -64,7 +64,7 @@ export const v1 = async () => {
         { userId: socket.ID }
       );
 
-      await update_updatedAt(socket.ID);
+      await update_updatedAt(socket.ID, socket.IP);
 
       io.to(socket.ROOMID).emit(constant.TALK_INFO, await info(socket.ROOMID));
     });
@@ -72,6 +72,6 @@ export const v1 = async () => {
     io.to(socket.ROOMID).emit(constant.BROADCAST, {});
 
     // 切断
-    socket.on('disconnect', () => { });
+    socket.on('disconnect', () => {});
   });
 };

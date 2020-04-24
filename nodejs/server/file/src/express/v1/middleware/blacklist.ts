@@ -8,7 +8,7 @@ export const blacklist = async (
   res: Express.Response,
   next: Express.NextFunction
 ) => {
-  const _ret = await find({ ip: shaping_ip(req.ip) });
+  const _ret = await find({ ip: shaping_ip(req) });
   if (!_ret) {
     next();
     return;

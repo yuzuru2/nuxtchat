@@ -39,7 +39,7 @@ export const user = async (
   // 改ざんしたトークンが送られて来たら
   if (_user === undefined) {
     // ブラックリスト入り
-    await create(shaping_ip(req.ip));
+    // await create(shaping_ip(req));
     res.sendStatus(500);
     return;
   }

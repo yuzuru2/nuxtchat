@@ -92,9 +92,12 @@ export const find_user = async (id: string) => {
 /**
  * ユーザのupdatedAtを更新
  */
-export const update_updatedAt = async (id: string) => {
+export const update_updatedAt = async (id: string, ip?: string) => {
   const _data: Pick<i_model, 'id'> = { id: id };
-  const _set: Pick<i_model, 'updatedAt'> = { updatedAt: new Date() };
+  const _set =
+    ip === undefined
+      ? { updatedAt: new Date() }
+      : { updatedAt: new Date(), ip: ip };
   return await model.updateMany(_data, { $set: _set });
 };
 

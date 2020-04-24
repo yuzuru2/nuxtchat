@@ -26,7 +26,7 @@ export const entering_room = async (req: i_requst, res: Express.Response) => {
       await logic({
         id: req.query.id,
         roomId: String(req.body.roomId),
-        ip: shaping_ip(req.ip),
+        ip: shaping_ip(req),
       })
     ) {
       // ブロードキャスト
