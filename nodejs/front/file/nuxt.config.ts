@@ -76,6 +76,7 @@ const config: Configuration = {
   axios: {},
   build: {
     extend(config, ctx) {
+      extractCSS: true,
       config.node = {
         fs: 'empty',
       };
