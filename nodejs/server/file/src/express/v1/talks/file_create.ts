@@ -6,6 +6,8 @@ import { shaping_ip } from 'src/util';
 import { constant } from 'src/constant';
 import { io } from 'src/express/v1';
 
+import { delete_batch } from 'src/logic/other/delete_batch';
+
 interface i_requst extends i_custom_requst {
   body: {
     image: Buffer;
@@ -36,6 +38,8 @@ export const create = async (req: i_requst, res: Express.Response) => {
     res.send({
       [constant.STATUS]: req.query.status,
     });
+    
+    await delete_batch(req.query.roomId);
   } catch (err) {
     res.sendStatus(500);
   }
