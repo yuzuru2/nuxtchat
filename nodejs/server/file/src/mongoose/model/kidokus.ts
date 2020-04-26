@@ -102,6 +102,10 @@ export const delete_kidokus = async (
   return await model.deleteMany(params, { session });
 };
 
+export const limit_delete = async (talkIds: string[]) => {
+  await model.deleteMany({ talkId: { $in: talkIds } });
+};
+
 /**
  * テスト用delete
  */
