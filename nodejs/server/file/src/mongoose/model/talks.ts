@@ -163,6 +163,18 @@ export const find = async (params: Pick<i_model, 'roomId'>) => {
   }[];
 };
 
+export const find_limit = async (roomId: string) => {
+  return (await model
+    .find({ roomId: roomId })
+    .sort({ updatedAt: -1 })
+    .skip(30)) as i_model[];
+};
+
+export const limit_delete = async (talkIds: string[]) => {
+  await model.deleteMany({ talkId: { $in: talkIds } });
+};
+
+
 /**
  * テスト用delete
  */
