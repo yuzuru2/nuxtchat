@@ -91,6 +91,14 @@ export default {
     // テキスト送信
     async send_message() {
       document.getElementById("chat_textarea").blur();
+      
+      // https://blog-and-destroy.com/8149
+      if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
+        // スマホ・タブレット（iOS・Android）の場合の処理を記述
+      } else {
+        document.getElementById("chat_textarea").focus();
+      }
+      
       const _message = this.message.trim();
 
       if (_message.length === 0 || _message === "\n") {
