@@ -66,6 +66,11 @@ const config: Configuration = {
         href: 'android-touch-icon.png',
         sizes: '192x192',
       },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+      }
     ],
   },
   loading: { color: '#fff' },
