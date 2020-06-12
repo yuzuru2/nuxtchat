@@ -58,9 +58,9 @@ $ cd chat
 
 # portの開放は各自で設定してください
 .envを編集 
-SERVER_IP   → サーバのIP
-NGINX_PORT  → フロントエンドサーバのポート番号 (お好きな番号を選んでください)
-BACKEND_PORT → バックエンドサーバのポート番号 (お好きな番号を選んでください)
+SERVER_IP      → サーバのIP
+FRONTEND_PORT  → フロントエンドサーバのポート番号 (お好きな番号を選んでください)
+BACKEND_PORT   → バックエンドサーバのポート番号 (お好きな番号を選んでください)
 FIREBASE_STORAGE_BUCKET → firebase storageのバケット名
 
 # firebase storageの秘密鍵 https://firebase.google.com/docs/admin/setup?hl=ja
