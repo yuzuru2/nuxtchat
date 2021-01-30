@@ -4,10 +4,6 @@
 
 nuxtで作ったSSRなチャットのソースです。
 
-## 成果物
-
-https://nuxtchat.itsumen.com
-
 ## 機能
 
 - グループチャット
